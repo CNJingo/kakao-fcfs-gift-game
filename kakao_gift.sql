@@ -37,4 +37,6 @@ ALTER TABLE member_gift_list
 ALTER TABLE member_gift_list
     ADD CONSTRAINT fk_memgiflis_on_member FOREIGN KEY (member_id) REFERENCES member (id);
 
+insert into member value(1, '2023-07-23 20:30:00', '2023-07-23 20:30:00');
+
 INSERT INTO gift (id, created_date, last_modified_date, name, price, sender_id, receiver_id) VALUES (1, '2023-07-21 12:34:56', '2023-07-21 12:34:56', 'Example Gift', 1000, 1, 3);

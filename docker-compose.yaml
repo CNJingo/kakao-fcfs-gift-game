@@ -18,7 +18,7 @@ services:
     container_name: fcfs-event-gateway
     image: wlsdn2165/kakao-gateway:latest
     build:
-      context: ./spring-gateway
+      context: ./gateway
     ports:
       - "8060:8080"
     depends_on:
@@ -36,7 +36,20 @@ services:
       - db
       - gateway
       - redis_container
+      - kafka
     restart: on-failure
+  consumer:
+    container_name: fcfs-event-consumer
+    image: wlsdn2165/consumer:latest
+    build:
+      context: ./consumer
+    ports:
+      - "8020:8020"
+    depends_on:
+      - db
+      - gateway
+      - redis_container
+      - kafka
 
   redis_container:
     image: redis:latest
