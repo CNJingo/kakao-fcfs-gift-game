@@ -1,0 +1,12 @@
+
+server:
+  port: 8020
+
+spring:
+  datasource:
+    url: jdbc:mysql://fcfs-event-db:3306/kakao_gift?autoReconnect=true
+    username: root
+    password: root
+  h2:
+    console:
+      enabled: true
