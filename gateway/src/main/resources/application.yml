@@ -1,0 +1,25 @@
+server:
+  address: 0.0.0.0
+
+spring:
+    main:
+      web-application-type: reactive
+      allow-bean-definition-overriding: true
+    application:
+        name: gateway
+    cloud:
+        gateway:
+            routes:
+                - id: fcfs-event-gift
+                  uri: http://127.0.0.1:8040
+                  predicates:
+                      - Path=/gift/**
+                  filters:
+                      - TokenRelay=
+logging:
+  org:
+      springframework:
+        security: DEBUG
+  level:
+    sql: debug
+
