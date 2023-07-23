@@ -1,0 +1,14 @@
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+.DS_Store
+.gitignore
+gradle/
+gradlew
+gradlew.bat
+settings.gradle
+src/.DS_Store
