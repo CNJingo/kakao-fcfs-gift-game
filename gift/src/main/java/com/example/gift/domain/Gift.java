@@ -24,6 +24,19 @@ public class Gift extends BaseEntity {
 
     private Long receiverId;
 
+    public Gift(String name, Long price, Long senderId, int stock) {
+        this.name = name;
+        this.price = price;
+        this.senderId = senderId;
+        this.stock = stock;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    private int stock;
+
     public Gift(String name, Long price, Long senderId) {
         this.name = name;
         this.price = price;
@@ -56,5 +69,9 @@ public class Gift extends BaseEntity {
 
     public void setReceiverId(Long receiverId) {
         this.receiverId = receiverId;
+    }
+
+    public void minusStock() {
+        this.stock--;
     }
 }

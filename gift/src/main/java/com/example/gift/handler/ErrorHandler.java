@@ -1,5 +1,6 @@
 package com.example.gift.handler;
 
+import com.example.gift.exception.DuplicateGiftException;
 import com.example.gift.exception.NotEnoughGiftException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,12 @@ public class ErrorHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(NotEnoughGiftException.class)
     public ResponseEntity<?> handleNotEnoughGiftException(RuntimeException ex, WebRequest webRequest) {
+        return handleExceptionInternal(ex, ex.getMessage(), new HttpHeaders(),
+                HttpStatus.INTERNAL_SERVER_ERROR, webRequest);
+    }
+
+    @ExceptionHandler(DuplicateGiftException.class)
+    public ResponseEntity<?> handleDuplicateGiftException(RuntimeException ex, WebRequest webRequest) {
         return handleExceptionInternal(ex, ex.getMessage(), new HttpHeaders(),
                 HttpStatus.INTERNAL_SERVER_ERROR, webRequest);
     }

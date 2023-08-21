@@ -21,7 +21,7 @@ public class GiftController {
     @PostMapping("/send")
     public ResponseEntity<?> giftGame(@RequestBody GiftFcfsRequest giftFcfsRequest) {
         giftService.firstComeFirstServedGiftDistribution(giftFcfsRequest.getUserId(),
-                giftFcfsRequest.getGiftId(), giftFcfsRequest.getGiftStock());
+                giftFcfsRequest.getGiftId());
 
 
         return ResponseEntity.ok("선착순 게임 달려갑니다.");

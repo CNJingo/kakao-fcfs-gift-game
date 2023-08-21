@@ -6,12 +6,9 @@ public class GiftFcfsRequest {
 
     private final Long giftId;
 
-    private final Integer giftStock;
-
-    public GiftFcfsRequest(Long userId, Long giftId, Integer giftStock) {
+    public GiftFcfsRequest(Long userId, Long giftId) {
         this.userId = userId;
         this.giftId = giftId;
-        this.giftStock = giftStock;
     }
 
     public Long getUserId() {
@@ -20,9 +17,5 @@ public class GiftFcfsRequest {
 
     public Long getGiftId() {
         return giftId;
-    }
-
-    public Integer getGiftStock() {
-        return giftStock;
     }
 }
